@@ -2,15 +2,15 @@ import { Link } from "react-router-dom"
 
 const MainListMenu = () => {
     return (
-        <nav>
-            <ul>
-                <li><Link to="/">Inicio</Link></li>
-                <li><Link to="/Products">Productos</Link></li>
-                <li><Link to="/offers">Ofertas</Link></li>
-                <li><Link to="/contact">Contacto</Link></li>
+        <nav className="w-3/5">
+            <ul className="flex justify-around items-cente">
+                <li className="text-gray-100"><Link to="/">Inicio</Link></li>
+                <li className="text-gray-100"><Link to="/Products">Productos</Link></li>
+                <li className="text-gray-100"><Link to="/offers">Ofertas</Link></li>
+                <li className="text-gray-100"><Link to="/contact">Contacto</Link></li>
             </ul>
         </nav>
     )
 }
 
-export default MainListMenu
+export default MainListMenu;

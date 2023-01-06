@@ -3,10 +3,12 @@ import MainListMenu from "../molecule/mainListMenu";
 
 const MainHeader = () => {
     return (
-        <header>
-            <Logo />
-            <MainListMenu />
-        </header>
+        <div className="fixed w-full bg-gradient">
+            <header className="w-full m-auto flex items-center justify-between max-w-screen-md py-1">
+                <Logo />
+                <MainListMenu />
+            </header>
+        </div>
     )
 }
 
