@@ -4,6 +4,7 @@ import TemplateApp from "../components/templates/templateApp";
 import Home from "../pages/Home";
 import Products from "../pages/products";
 import Login from "../pages/login";
+import Logout from "../pages/logout";
 
 const router = createBrowserRouter([
     {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
     {
         path: "/login",
         element: <Login />
+    },
+    {
+        path: "logout",
+        element: <Logout />
     }
 ]);
 
