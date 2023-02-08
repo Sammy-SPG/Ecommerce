@@ -3,7 +3,6 @@ import FormControl from "../components/molecule/formControl";
 import Logo from "../components/molecule/logo";
 import LoginTemplate from "../components/templates/loginTemplate";
 import { API_URL } from "../constants/env";
-import postQuery from "../helpers/petisionPost";
 
 const Logout = () => {
 
@@ -25,7 +24,11 @@ const Logout = () => {
 
     const evtLogin = async (data) => {
         try {
-            const res = await postQuery(`${API_URL}public/users`, data);
+            const query = await fetch(`${API_URL}public/users`, {
+                method: 'POST',
+                body: JSON.stringify(data)
+            });
+            const res = await query.json();
             if(!res.data.id){
                 Swal.fire({
                     icon: 'error',
@@ -33,7 +36,7 @@ const Logout = () => {
                     text: res.messages[0].message,
                     footer: 'Registrar'
                 });
-                throw new Error(res.messages[0].code);
+                throw new Error(res.message);
             }
             location.href = "/login";
         } catch (error) {

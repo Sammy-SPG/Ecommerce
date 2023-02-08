@@ -3,7 +3,7 @@ import MainHeader from "../organism/mainHeader";
 
 const TemplateApp = () => {
   return (
-    <div className="m-0 p-0 w-screen h-screen">
+    <div className="m-0 p-0 h-screen">
       <MainHeader />
 
       <div className="pt-16 w-full m-auto">

@@ -12,7 +12,6 @@ const MainListMenu = () => {
         <nav className="w-3/5">
             <ul className="flex justify-around items-cente">
                 <li className="text-gray-100"><Link to="/">Inicio</Link></li>
-                <li className="text-gray-100"><Link to="/Products">Productos</Link></li>
                 <li className="text-gray-100"><Link to="/offers">Ofertas</Link></li>
                 <li className="text-gray-100"><Link to="/contact">Contacto</Link></li>
                 {!getToken()? <li className="text-gray-100"><Link to="/login" className="cursor-pointer">Iniciar sesion</Link></li> : <li className="text-gray-100"><a onClick={CloseSesion} className="cursor-pointer">Cerrar sesion</a></li>}
