@@ -4,7 +4,7 @@ import MainListMenu from "../molecule/mainListMenu";
 const MainHeader = () => {
     return (
         <div className="fixed w-full bg-gradient">
-            <header className="w-full m-auto flex items-center justify-between max-w-screen-md py-1">
+            <header className="w-full max-w-screen-lg m-auto flex items-center justify-between py-1">
                 <Logo />
                 <MainListMenu />
             </header>

@@ -17,11 +17,15 @@ const ProductSuccess = () => {
                 }
             });
             const body = await res.json();
-            localStorage.removeItem('TokenSessionPaymen');
             setDataPayment(body);
             setLoading(false);
         })();
     }, []);
+
+    const handleClick = () => {
+        localStorage.removeItem('TokenSessionPayment');
+        location.href = '/';
+    }
 
     if (loading) return <Spin />
 
@@ -45,7 +49,7 @@ const ProductSuccess = () => {
                 <div className="flex justify-evenly items-center">
                     <button className="w-48 text-sm rounded-lg bg-blue-500 p-1.5 text-white duration-100 hover:bg-blue-600 mx-2">Ver historial de compras</button>
                     <a href={dataPayment.charge} className="w-48 text-center text-sm rounded-lg bg-blue-500 p-1.5 text-white duration-100 hover:bg-blue-600 mx-2">Ver recibo de compra</a>
-                    <button className="w-48 text-sm rounded-lg bg-blue-500 p-1.5 text-white duration-100 hover:bg-blue-600 mx-2">Volver al inicio</button>
+                    <button className="w-48 text-sm rounded-lg bg-blue-500 p-1.5 text-white duration-100 hover:bg-blue-600 mx-2" onClick={handleClick}>Volver al inicio</button>
                 </div>
             </div>
         </div>

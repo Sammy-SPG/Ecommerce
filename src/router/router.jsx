@@ -11,6 +11,7 @@ import { Update } from "../pages/admin/products/update";
 import TemplateAppAdmin from "../components/templates/templateAppAdmin";
 import { Product } from "../pages/product";
 import ProductSuccess from "../pages/productSuccess";
+import ShoppingHistory from "../pages/shoppingHistory";
 
 const router = createBrowserRouter([
     {
@@ -20,6 +21,9 @@ const router = createBrowserRouter([
         children: [
             {
                 index: true, element: <Home />
+            },
+            {
+                path: "/shoppingHistory", element: <ShoppingHistory />
             },
             {
                 path: "/product/:id", element: <Product />
@@ -50,7 +54,7 @@ const router = createBrowserRouter([
         element: <Login />
     },
     {
-        path: "logout",
+        path: "/logout",
         element: <Logout />
     },
     {
