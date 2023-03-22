@@ -6,7 +6,7 @@ const TemplateApp = () => {
     <div className="m-0 p-0 h-screen">
       <MainHeader />
 
-      <div className="pt-16 w-full m-auto">
+      <div className="w-full m-auto">
         <Outlet />
       </div>
     </div>

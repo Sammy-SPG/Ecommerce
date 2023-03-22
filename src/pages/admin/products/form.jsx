@@ -131,10 +131,10 @@ export const Form = () => {
                     <label htmlFor="">Descripcion: </label>
                     <textarea name="description" className="form-input" rows={10}></textarea>
                 </div>
-                <input type="file" onChange={(e) => setSelectedFile(e.target.files)} className="inputFile" />
+                <input type="file" onChange={(e) => setSelectedFile(e.target.files)} multiple className="inputFile" />
                 <Submit title="Crear Producto" />
             </form>
-            <div className="w-4/5 px-3 flex flex-col items-center flex-col border-l-4 border-indigo-500">
+            <div className="w-4/5 px-3 flex flex-col items-center border-l-4 border-indigo-500">
                 <h1 className="py-4 text-center">Imagenes seleccionadas</h1>
                 <div className="min-w-md max-w-md">
                     <img ref={ref} className="img-selected rounded-lg my-3" />

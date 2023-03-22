@@ -12,6 +12,10 @@ import TemplateAppAdmin from "../components/templates/templateAppAdmin";
 import { Product } from "../pages/product";
 import ProductSuccess from "../pages/productSuccess";
 import ShoppingHistory from "../pages/shoppingHistory";
+import Cart from "../pages/Cart";
+import ProductShears from "../pages/ProductShears";
+import Perfil from "../pages/perfil";
+import Favorites from "../pages/favorites";
 
 const router = createBrowserRouter([
     {
@@ -23,6 +27,9 @@ const router = createBrowserRouter([
                 index: true, element: <Home />
             },
             {
+                path: "/cart", element: <Cart />
+            },
+            {
                 path: "/shoppingHistory", element: <ShoppingHistory />
             },
             {
@@ -30,7 +37,17 @@ const router = createBrowserRouter([
             },
             {
                 path: '/product/success', element: <ProductSuccess />
+            },
+            {
+                path: "/products/shears/:name/:rating", element: <ProductShears />
+            },
+            {
+                path: '/profile/', element: <Perfil />
+            },
+            {
+                path: '/favorites/', element: <Favorites />
             }
+
         ]
     },
     {

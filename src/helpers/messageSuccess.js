@@ -12,7 +12,7 @@ const Success = (leyenda, redirect) => {
 
     else return Swal.fire({
         icon: 'success',
-        title: 'Producto creado exitosamente',
+        title: leyenda,
         showConfirmButton: false,
         timer: 1500
     });

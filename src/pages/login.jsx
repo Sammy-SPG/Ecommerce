@@ -21,7 +21,6 @@ const Login = () => {
     const evtLogin = async (data) => {
         try {
             let headersList = {
-                "Accept": "*/*",
                 "Content-Type": "application/json"
             }
             let bodyContent = JSON.stringify(data);

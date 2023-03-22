@@ -21,12 +21,13 @@ const useFetchGet = (endPoint) => {
                     }
                 });
                 result = await query.json();
-                if(result?.message === "jwt malformed"){
+                if (result?.message === "jwt malformed") {
                     throw result;
                 }
             } else {
                 query = await fetch(`${API_URL}${url}`);
                 result = await query.json();
+                // console.log(result);
             }
             if (result.errors) throw result;
             setData(result);

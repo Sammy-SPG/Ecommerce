@@ -31,7 +31,7 @@ const ProductsTable = () => {
             if (result.isConfirmed) {
                 try {
                     setLoading(true);
-                    const query = await fetch(`${API_URL}v1/admin/disabled/product/${product.id}`, {
+                    const query = await fetch(`${API_URL}v1/admin/disabled/product/${product.id_product}`, {
                         method: 'DELETE',
                         headers: {
                             'content-type': 'application/json',
@@ -95,7 +95,7 @@ const ProductsTable = () => {
                         </div>
                     </div>
                 </div>
-                {data.length > 0 ? <table className="table-fixed w-full">
+                {!data.message > 0 ? <table className="table-fixed w-full">
                     <thead>
                         <tr>
                             <th className="border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">Nombre</th>
@@ -106,13 +106,13 @@ const ProductsTable = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {data?.map((product) => (
-                            <tr key={product.id}>
+                        {!data.message && data?.map((product) => (
+                            <tr key={product.id_product}>
                                 <td className="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400 truncate">{product.name?.substr(0, 45)}</td>
                                 <td className="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{formatPrice(product.price)}</td>
-                                <td className="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{DateUnix(product.create)}</td>
-                                <td className="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{DateUnix(product.update)}</td>
-                                <td><button className="bg-red-500 p-1.5 text-sm rounded-lg text-white mx-2" data-product-id={product.id} onClick={() => deleteProduct(product)}>Eliminar</button><Link className="bg-amber-500 p-1.5 text-sm rounded-lg text-white" to={`/admin/products/update?id=${product.id}`}>Actualizar</Link></td>
+                                <td className="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{DateUnix(product.created)}</td>
+                                <td className="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{DateUnix(product.updated)}</td>
+                                <td><button className="bg-red-500 p-1.5 text-sm rounded-lg text-white mx-2" onClick={() => deleteProduct(product)}>Eliminar</button><Link className="bg-amber-500 p-1.5 text-sm rounded-lg text-white" to={`/admin/products/update?id=${product.id_product}`}>Actualizar</Link></td>
                             </tr>))}
                     </tbody>
                 </table> : <div>No hay productos en existencia <Link to="/admin/products/create" className="text-sm rounded-lg bg-blue-500 p-1.5 text-white duration-100 hover:bg-blue-600">Agrege un producto</Link></div>}

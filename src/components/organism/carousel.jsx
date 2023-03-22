@@ -2,8 +2,8 @@ import { useState, useEffect, Children, cloneElement } from "react";
 
 const Carousel = ({ children }) => {
     const [elements, setElements] = useState();
-    const [position, setPosition] = useState(0);
     const arrayChildren = Children.toArray(children);
+    const [position, setPosition] = useState(0);
 
     useEffect(() => {
         const elements = Children.map(arrayChildren, (child, i) => {
@@ -27,31 +27,30 @@ const Carousel = ({ children }) => {
     }, [position]);
 
     const handleOnclickNext = () => {
-        if (arrayChildren.length - 1 > position) {
+        if (arrayChildren.length - 1 > position + 2) {
             setPosition(position + 1);
         }
     }
 
     const handleOnclickBack = () => {
-        if (position > 0) {
+        if (position >= 1) {
             setPosition(position - 1);
         }
     }
 
     return (
-        <div className="mt-6 relative max-w-3xl m-auto">
-            <div className="flex items-center w-full">
-                <div className="absolute -left-1/4">
+        <div className="mt-6 relative w-full m-auto">
+            <div className="flex items-center justify-between w-full">
+                <div className="absolute -left-9">
                     <button className=" font-serif text-4xl font-semibold" onClick={handleOnclickBack}>{"<"}</button>
                 </div>
 
-                <div className="w-full max-w-full grid gap-7 grid-cols-3">{elements}</div>
+                <div className="w-full max-w-full grid lg:grid-cols-3 md:grid-cols-2 justify-items-center content-center">{elements}</div>
 
-                <div className="absolute -right-1/4">
+                <div className="absolute -right-9">
                     <button className="font-serif text-4xl font-semibold" onClick={handleOnclickNext}>{">"}</button>
                 </div>
             </div>
-            <div></div>
         </div>
     )
 }

@@ -126,7 +126,7 @@ export const Update = () => {
         <div className="w-4/5 m-auto flex justify-center py-6 px-6">
             <form className="w-full p-6" onSubmit={handleSubmit}>
                 <h2 className="text-center mb-3">Actualizar producto</h2>
-                <select name="select" value={data.metadata.rating} className="select">
+                <select name="select" value={data?.metadata?.rating} className="select">
                     <option>Tipo de producto</option>
                     <option value={data.metadata.rating}>{data.metadata.rating}</option>
                 </select>
@@ -143,10 +143,10 @@ export const Update = () => {
                     <label htmlFor="">Descripcion: </label>
                     <textarea name="description" className="form-input" rows={5}>{data.description}</textarea>
                 </div>
-                <input type="file" className="inputFile" onChange={(e) => setSelectedFile(e.target.files)} />
+                <input type="file" className="inputFile" multiple onChange={(e) => setSelectedFile(e.target.files)} />
                 <Submit title="Actualizar Product" />
             </form>
-            <div className="w-4/5 px-3 flex flex-col items-center flex-col border-l-4 border-indigo-500">
+            <div className="w-4/5 px-3 flex flex-col items-center border-l-4 border-indigo-500">
                 <h1 className="py-4 text-center">Imagenes seleccionadas</h1>
                 <div className="min-w-md max-w-md">
                     <img ref={ref} className="img-selected" />
