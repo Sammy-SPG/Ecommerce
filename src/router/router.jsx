@@ -16,6 +16,8 @@ import Cart from "../pages/Cart";
 import ProductShears from "../pages/ProductShears";
 import Perfil from "../pages/perfil";
 import Favorites from "../pages/favorites";
+import Customers from "../pages/admin/customers/customers";
+import Charges from "../pages/admin/customers/charges";
 
 const router = createBrowserRouter([
     {
@@ -63,6 +65,12 @@ const router = createBrowserRouter([
             },
             {
                 path: '/admin/products/update/', element: <Update />
+            },
+            {
+                path: '/admin/customers', element: <Customers />
+            },
+            {
+                path: '/admin/charges', element: <Charges />
             }
         ]
     },

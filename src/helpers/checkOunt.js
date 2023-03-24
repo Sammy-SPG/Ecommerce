@@ -1,7 +1,7 @@
 import { API_URL } from "../constants/env";
 import { getToken } from "./auth";
 
-const CheckoutPayment = async (data) => {
+const CheckoutPayment = async (data, metadata) => {
     const token = getToken();
     if (!token) return;
 
@@ -11,7 +11,7 @@ const CheckoutPayment = async (data) => {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${getToken()}`,
         },
-        body: JSON.stringify({ line_items: data })
+        body: JSON.stringify({ line_items: data, metadata })
     });
 
     const body = await QueryUrl.json();

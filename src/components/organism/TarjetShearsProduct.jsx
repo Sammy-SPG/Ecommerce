@@ -29,7 +29,7 @@ const TarjetShearsProduct = ({ id, id_price, name, img, description, price }) =>
                     </div>
                     <div className="flex item-center justify-between mt-3">
                         <h1 className="text-gray-700 font-bold text-xl">{formatPrice(price)}</h1>
-                        <AddToCartButton id={id} id_price={id_price} image={img} name={name} price={price} />
+                        <AddToCartButton id={id} id_price={id_price} image={img} name={name} price={price} description={description}/>
                     </div>
                 </div>
             </div>

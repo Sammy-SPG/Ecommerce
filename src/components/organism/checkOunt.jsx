@@ -1,12 +1,15 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import CheckoutPayment from '../../helpers/checkOunt';
 import { formatPrice } from '../../helpers/number'
 
-const CheckOunt = ({ total, products, price }) => {
+const CheckOunt = ({ total, products, price, metadataProduct }) => {
+
+    const [metadata, setMetadata] = useState({});
 
     useEffect(() => {
         if (localStorage.getItem('TokenSessionPayment')) localStorage.removeItem('TokenSessionPayment');
-    }, []);
+        if (metadataProduct != null) setMetadata(metadataProduct);
+    }, [metadataProduct]);
 
     const renderPrice = (label, price) => (
         <div className="flex justify-between my-1">
@@ -28,7 +31,7 @@ const CheckOunt = ({ total, products, price }) => {
                     <p className="text-sm text-gray-700">Incluye IVA</p>
                 </div>
             </div>
-            <button className="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600" onClick={() => CheckoutPayment(products)}>Check out</button>
+            <button className="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600" onClick={() => CheckoutPayment(products, metadata)}>Check out</button>
         </div>
     );
 }

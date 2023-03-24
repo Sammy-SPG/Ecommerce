@@ -35,16 +35,20 @@ export const LoginAdmin = () => {
     }
 
     return (
-        <LoginTemplate>
-            <form className='w-1/2 px-5 py-5' onSubmit={(e) => handleSubmit(e)}>
-                <div className="py-3"><Logo /></div>
-                <h2 className="text-lg font-medium text-center py-1">Inicio de sesion administrador</h2>
-                <div>
-                    <FormControl label="Email" nameInput="email" placeholder="Email" typeInput="text" />
-                    <FormControl label="Account" nameInput="accountId" placeholder="Account Id" typeInput="text" />
-                    <Submit title="iniciar sesion" />
-                </div>
-            </form>
-        </LoginTemplate>
+        <div className='bg-slate-200'>
+            <div className="max-w-6xl mx-auto h-screen flex items-center justify-center">
+                <LoginTemplate>
+                    <form className="w-1/2 px-5 py-8 bg-white rounded-l-lg shadow-lg" onSubmit={(e) => handleSubmit(e)}>
+                        <div className="py-3"><Logo /></div>
+                        <h2 className="text-lg font-medium text-center py-1">Inicio de sesión Administracion</h2>
+                        <div className="mt-8">
+                            <FormControl label="Email" nameInput="email" placeholder="Email" typeInput="text" />
+                            <FormControl label="Account" nameInput="accountId" placeholder="Account Id" typeInput="text" />
+                            <Submit title="Iniciar sesion" />
+                        </div>
+                    </form>
+                </LoginTemplate>
+            </div>
+        </div>
     )
 }
